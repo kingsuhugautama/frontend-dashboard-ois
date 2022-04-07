@@ -1,0 +1,10 @@
+<div class="mb-2 row">
+    <div [class]="divLabelClass">
+        <atm-label [LabelCaption]="label"></atm-label>
+    </div>
+    <div [class]="divInputClass">
+        <atm-input-group-atom [inputId]="inputId" [disableTitle]="disableTitle" [value]="titleValue"
+            [button-shortcut]="buttonShortcut" (clickButton)="handleClickButton($event)">
+        </atm-input-group-atom>
+    </div>
+</div>

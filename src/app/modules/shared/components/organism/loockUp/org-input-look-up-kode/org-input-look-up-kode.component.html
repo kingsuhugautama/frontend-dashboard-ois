@@ -1,0 +1,41 @@
+<mol-input-group-kode [id_input]="idKode" [label]="label" (pressEnter)="handlePressEnter($event)"
+    (clickButton)="onOpenModal()" [kodeValue]="kodeValue" [titleValue]="titleValue" [disableTitle]="true" [disabled]="disabled">
+</mol-input-group-kode>
+
+<ng-template #template>
+    <div class="modal-content border-0 large-modal-content">
+        <div class="modal-header py-1 bg-light text-ungu-tua">
+            <h5 class="modal-title">{{ modalTitle }}</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.hide()"></button>
+        </div>
+        <div class="modal-body p-1">
+            <div class="row mx-0 my-1">
+                <div class="col-lg-12 col-md-12 col-sm 12">
+                    <h5 class="card-title mb-1">Cari :</h5>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <mol-lock-up-filters [filters]="filters" (onChangeFilters)="onChangeFilters($event)">
+                    </mol-lock-up-filters>
+                </div>
+            </div>
+
+            <div class="row mx-0 my-1">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <input type="text" #searchValueId class="form-control" id="searchValueId"
+                        (keydown.enter)="onSearchLookup(searchValueId.value)" />
+                </div>
+            </div>
+
+            <div class="row mx-0 my-2">
+                <div class="col-lg-12 col-md-12 col-sm 12">
+                    <mol-grid #GridData [grid-id]="gridId" [grid-width]="gridWidth" [grid-height]="gridHeight"
+                        [grid-DataSource]="gridDataSource" [grid-lines]="gridLines" [columns]="columns"
+                        [grid-paging]="gridPaging" [grid-initial-page]="gridPageSettings"
+                        (row-selected)="onRowSelected($event)" (enter-pressed)="onKeyPressed($event)"
+                        (double-click)="onDoubleClicked($event)" (initialized)="onInitialized($event)">
+                    </mol-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

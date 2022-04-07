@@ -1,0 +1,94 @@
+<div class="card shadow-sm" [style]="BorderLeft" [id]="Id"
+    (click)="onClickCardButton(NamaPasien, Waktu, Status, NamaDokter, KodeResep, DetailResep)">
+    <div class="card-body p-2">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-1">
+                <div class="row align-items-center">
+                    <p class="font-cabin mb-0 text-hitam textSubTitle fw-bold text-center">
+                        {{ NomorAntrian }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-1">
+                <div class="row align-items-center">
+                    <!-- Nama Pasien -->
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pe-0">
+                        <p class="font-cabin mb-0 text-hitam textSubTitle fw-bold">
+                            {{ NamaPasien }}
+                        </p>
+                    </div>
+                    <!-- Date -->
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-end ps-0">
+                        <p class="font-cabin mb-0 text-hitam-muda textSubText">
+                            No.Reg {{ NoRegister }}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-1">
+                <div class="row align-items-center">
+                    <!-- Nama Pasien -->
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pe-0">
+                        <p class="font-cabin mb-0 text-biru-tua">
+                            {{ NamaDokter }}
+                        </p>
+                    </div>
+                    <!-- Date -->
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-end ps-0">
+                        <p class="font-cabin mb-0 text-hitam-muda textSubText">
+                            {{ Waktu | date: "dd MMM yy, HH:mm:ss" }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-2">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pe-0">
+                        <span class="badge bg-warning">
+                            {{ KodeResep }}
+                        </span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-end ps-0"
+                        (click)="onTogglingDetailObat(KodeResep)" style="cursor: pointer;">
+                        <p class="font-cabin mb-0 text-hitam-muda" style="font-size: 13px;">
+                            <i class="fas fa-caret-down" id="{{ KodeResep }}Caret"></i>&nbsp;
+                            Lihat Detail Resep
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3" *ngIf="ShowDetailObat">
+                <ul class="list-group">
+                    <li class="list-group-item px-2" *ngFor="let obat of DetailResep" [id]="obat.Id">
+                        <p class="font-cabin mb-0 text-hitam-muda" style="font-size: 12px">
+                            {{ obat.NamaObat }} - {{ obat.Qty }} {{ obat.Satuan }}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="Status == 'SiapDiracik'">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-sm" type="button" (click)="onMarkResepSudahDilayani(Id)">
+                        <i class="fas fa-check fa-sm"></i>&nbsp; Sedang Dilayani
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="Status == 'SedangDiracik'">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-sm" type="button" (click)="onMarkResepAsComplete(Id)">
+                        <i class="fas fa-check fa-sm"></i>&nbsp; Resep Telah Selesai
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="Status == 'Data'">
+                <div class="d-grid gap-2">
+                    <!-- <button class="btn btn-primary btn-sm" type="button" (click)="onResepPindahKeAntrian(NoRegister)"> -->
+                    <button class="btn btn-primary btn-sm" type="button" (click)="onResepPindahKeAntrian(Id)">
+                        <i class="fas fa-check fa-sm"></i>&nbsp; Pindah Ke Antrian
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

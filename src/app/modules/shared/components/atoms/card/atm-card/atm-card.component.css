@@ -1,0 +1,24 @@
+.textSubTitle {
+  font-size: 1.2rem;
+}
+
+.textSubText {
+  font-size: 13px;
+}
+
+.badge {
+  font-size: 13px;
+}
+
+@media only screen and (min-width: 992.98px) and (max-width: 1199.98px) {
+  .textSubTitle {
+    font-size: 0.85rem;
+  }
+
+  .badge {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 1366.98px) {
+}

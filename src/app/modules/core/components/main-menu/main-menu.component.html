@@ -1,0 +1,7 @@
+<div class="row" *ngIf="ShowMainMenu">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mb-3" id="{{ item.id_menu }}Col" *ngFor="let item of MainMenu"
+        (click)="onClickMenu(item.id_menu, item.caption)">
+        <atm-single-menu [IdMenu]="item.id_menu" [IconMenu]="item.icon" [NamaMenu]="item.caption">
+        </atm-single-menu>
+    </div>
+</div>

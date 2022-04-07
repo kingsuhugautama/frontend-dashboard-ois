@@ -1,0 +1,82 @@
+<section id="section-authentication">
+    <atm-notification aria-live="polite" aria-atomic="true" class="atmNotifAuth"></atm-notification>
+
+    <div class="row p-0 m-0">
+        <!-- Image Auth -->
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bg-image-auth">
+            <div class="row div-text-image">
+                <!-- Nama Product -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3 class="font-cabin mb-0 text-abu-muda">
+                        Office Information System
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Field -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <form [formGroup]="formAuthentication">
+                                <!-- Logo -->
+                                <div class="mb-3 pb-1 text-center border-bottom">
+                                    <h5 class="font-cabin mb-0">Sign In Account</h5>
+                                </div>
+
+                                <!-- Username -->
+                                <div class="mb-3">
+                                    <!-- Label -->
+                                    <atm-label [LabelCaption]="'Username'" [LabelFor]="'Username'"></atm-label>
+
+                                    <!-- Input Field -->
+                                    <input type="text" class="form-control" id="Username" formControlName="Username"
+                                        autocomplete="off" required>
+
+                                    <!-- Validators -->
+                                    <atm-validators [IsFormControlTouched]="Username.touched"
+                                        [IsFormControlInvalid]="Username.invalid"
+                                        [ValidatorsCaption]="'Username Tidak Boleh Kosong'">
+                                    </atm-validators>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="mb-3">
+                                    <!-- Label -->
+                                    <atm-label [LabelCaption]="'Password'" [LabelFor]="'Password'"></atm-label>
+
+                                    <!-- Input Field -->
+                                    <div class="input-group mb-0">
+                                        <input type="password" class="form-control" id="Password" aria-label="Password"
+                                            aria-describedby="see-password" autocomplete="off"
+                                            formControlName="Password"
+                                            (keydown.enter)="formAuthentication.valid ? onClickButtonSignIn(formAuthentication.value) : ''">
+                                        <span class="input-group-text cursor-pointer" id="see-password"
+                                            (click)="onTogglingSeePassword('Password')">
+                                            <i id='PasswordIcon' class="fas fa-eye fa-sm"></i>
+                                        </span>
+                                    </div>
+
+                                    <!-- Validators -->
+                                    <atm-validators [IsFormControlTouched]="Password.touched"
+                                        [IsFormControlInvalid]="Password.invalid"
+                                        [ValidatorsCaption]="'Password Tidak Boleh Kosong'">
+                                    </atm-validators>
+                                </div>
+
+                                <!-- Button Sign In -->
+                                <atm-button-primary [IsButtonBlock]="true"
+                                    [IsButtonDisabled]="!formAuthentication.valid" [ButtonPrimaryCaption]="' Sign In'"
+                                    [ButtonPrimaryIcon]="'fa-sign-in-alt'"
+                                    (onClickButtonPrimary)="onClickButtonSignIn(formAuthentication.value)">
+                                </atm-button-primary>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

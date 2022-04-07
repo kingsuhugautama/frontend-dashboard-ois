@@ -1,0 +1,10 @@
+<ngb-toast *ngFor="let item of Toasts; index as index" [autohide]="true" [delay]="10000"
+    class="bg-danger text-white notif" (hidden)="onHideNotification(item, index)">
+    <ng-template ngbToastHeader>
+        <p class="font-cabin text-hitam-muda mb-0">
+            <i class="fas fa-exclamation-triangle"></i>&nbsp; {{ item.header }}
+        </p>
+    </ng-template>
+
+    {{ item.body }}
+</ngb-toast>

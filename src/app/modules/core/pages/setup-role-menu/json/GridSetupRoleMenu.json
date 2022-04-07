@@ -1,0 +1,91 @@
+{
+    "GridRoleButton": {
+        "columns": [
+            {
+                "allowEditing": false,
+                "allowSorting": false,
+                "editType": "numericEdit",
+                "field": " id_jenis_button",
+                "headerText": "ID",
+                "format": "N",
+                "visible": false,
+                "width": 50
+            },
+            {
+                "allowEditing": false,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": "nama_button",
+                "headerText": "Nama Button",
+                "type": "string",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": false,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": "caption",
+                "headerText": "Caption",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": false,
+                "allowFiltering": false,
+                "editType": "booleanedit",
+                "field": "status_akses",
+                "headerText": "Status",
+                "type": "boolean",
+                "displayAsCheckBox": true,
+                "visible": true,
+                "width": 50
+            }
+        ]
+    },
+    "GridRoleFieldGrid": {
+        "columns": [
+            {
+                "allowEditing": false,
+                "allowSorting": false,
+                "editType": "numericEdit",
+                "field": " id_field_grid",
+                "headerText": "ID",
+                "format": "N",
+                "visible": false,
+                "width": 50
+            },
+            {
+                "allowEditing": false,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": "nama_asli_field",
+                "headerText": "Nama Field",
+                "type": "string",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": false,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": "nama_header_text",
+                "headerText": "Header Text",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": false,
+                "editType": "booleanedit",
+                "field": "status_akses",
+                "headerText": "Status",
+                "type": "boolean",
+                "displayAsCheckBox": true,
+                "visible": true,
+                "width": 50
+            }
+        ]
+    }
+}

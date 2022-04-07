@@ -1,0 +1,39 @@
+{
+    "GridDaftarBarang": {
+        "columns": [
+            {
+                "allowEditing": true,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": " no_batch",
+                "headerText": "NO. BATCH",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": "exp_date",
+                "format": "dd MMMM yyyy",
+                "headerText": "EXP DATE",
+                "type": "DateTime",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": false,
+                "editType": "defaultEdit",
+                "field": "qty",
+                "headerText": "QTY",
+                "headerTextAlign": "Right",
+                "format": "N2",
+                "type": "numeric",
+                "visible": true,
+                "width": 100,
+                "textAlign": "Right"
+            }
+        ]
+    }
+}

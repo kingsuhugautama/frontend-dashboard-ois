@@ -1,0 +1,4 @@
+<select class="form-select form-select-sm" [value]="value" (change)="doChange($event)"
+    aria-label="Default select example">
+    <option *ngFor="let data of options" [value]="getValue(data)">{{ getKey(data) }}</option>
+</select>

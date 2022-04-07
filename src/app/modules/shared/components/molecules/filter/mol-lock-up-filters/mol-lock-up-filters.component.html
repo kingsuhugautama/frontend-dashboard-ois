@@ -1,0 +1,7 @@
+<div class="form-check form-check-inline" *ngFor="let checkboxFilter of filters">
+    <input type="checkbox" class="form-check-input" id="{{ checkboxFilter.field }}"
+        (change)="onFilterChanged(checkboxFilter)">
+    <label class="form-check-label" for="{{checkboxFilter.field}}">
+        {{ checkboxFilter.title }}
+    </label>
+</div>

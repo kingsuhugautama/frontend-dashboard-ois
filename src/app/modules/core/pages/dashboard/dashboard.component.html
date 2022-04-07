@@ -1,0 +1,32 @@
+<section id="dashboard-section">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <div class="row px-0 mx-0">
+            <section id="navbar-section" class="bg-white px-0">
+                <atm-navbar (onClickNavbarBrand)="onClickNavbarBrand($event)"></atm-navbar>
+            </section>
+        </div>
+
+        <div class="row px-0 mx-0">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 px-0">
+                <section id="top-menu" class="bg-white">
+                    <mol-top-menu #TopMenuComponent [ToggleVisibility]="ToggleTopMenu"
+                        (onToggledVisibility)="onTogglingTopMenu($event)">
+                    </mol-top-menu>
+                </section>
+            </div>
+        </div>
+
+        <div class="row px-0 mx-0">
+            <!-- Sidebar -->
+            <section id="sidebar-section" class="p-0" [class.collapse-sidebar]="SidebarCollapse">
+                <mol-sidebar [SidebarCollapse]="SidebarCollapse"></mol-sidebar>
+            </section>
+
+            <!-- Content -->
+            <section id="content-section" [class.expand-content]="SidebarCollapse">
+                <router-outlet (activate)="componentAdded($event)"></router-outlet>
+            </section>
+        </div>
+    </div>
+</section>

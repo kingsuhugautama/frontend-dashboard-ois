@@ -1,0 +1,6 @@
+<div class="mb-2" [class.d-grid.gap-2]="IsButtonBlock">
+    <button class="btn btn-primary" type="button" (click)="onClickedButtonPrimary($event)"
+        [disabled]="IsButtonDisabled">
+        <i class="fas {{ ButtonPrimaryIcon }}"></i> {{ ButtonPrimaryCaption }}
+    </button>
+</div>

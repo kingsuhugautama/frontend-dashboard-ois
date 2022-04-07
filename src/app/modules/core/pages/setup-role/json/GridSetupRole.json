@@ -1,0 +1,46 @@
+{
+    "GridHeader": {
+        "columns": [
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "numericEdit",
+                "field": "id_role",
+                "headerText": "ID",
+                "type": "string",
+                "visible": true,
+                "width": 50
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "defaultEdit",
+                "field": "nama_role",
+                "headerText": "Nama Role",
+                "type": "string",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "defaultEdit",
+                "field": "keterangan",
+                "headerText": "Keterangan",
+                "visible": true,
+                "width": 100
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "defaultEdit",
+                "field": "time_created",
+                "headerText": "Created Date",
+                "visible": true,
+                "type": "DateTime",
+                "format": "dd/MM/yyyy HH:mm:ss",
+                "width": 100
+            }
+        ]
+    }
+}

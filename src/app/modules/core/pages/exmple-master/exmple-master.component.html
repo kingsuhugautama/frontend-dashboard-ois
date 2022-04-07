@@ -1,0 +1,68 @@
+<!-- <form [formGroup]="formPasien" (ngSubmit)="handleSubmit(formPasien.value)">
+    <mol-input-text [label]="'email'" formControlName="email" id="email"
+        [FormControlCaption]="'Email Tidak Boleh Kosong'">
+    </mol-input-text>
+
+    <mol-input-textarea [label]="'example'" formControlName="example" id="example"
+        [FormControlCaption]="'Example Tidak Boleh Kosong'">
+    </mol-input-textarea>
+
+    <org-input-look-up #lookUpPasien [label]="'look up data'" [sourceGrid]="sourceGrid" [idKode]="'id'"
+        [idTitle]="'email'" [modal-title]="'List Example'" (onGetSelectedData)="heandleSelectedLookUp($event)"
+        [columns]="columns">
+    </org-input-look-up>
+
+    <button type="submit" class="btn btn-primary">Simpan</button>
+
+    <org-tabs>
+        <org-tabs-item>
+            <org-tabs-label>First tab</org-tabs-label>
+            <org-tabs-body>
+                IO am first content
+            </org-tabs-body>
+        </org-tabs-item>
+        <org-tabs-item>
+            <org-tabs-label>First tab</org-tabs-label>
+            <org-tabs-body>
+                Haloo Word
+            </org-tabs-body>
+        </org-tabs-item>
+    </org-tabs>
+
+ 
+</form> -->
+
+
+<org-card-layout>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <mol-input-checkbox-single [label]="'Test CheckBox'"></mol-input-checkbox-single>
+
+            <button type="button" class="btn btn-primary" (click)="onClickButton()">Simpan</button>
+
+            <!-- Modal Dialog Penerimaan Batch -->
+            <ng-template #modalDialogBatch>
+                <div class="modal-header px-2 py-1 background-biru-muda text-white">
+                    <h5 class="modal-title pull-left">Input No. Batch</h5>
+                    <button type="button" class="btn pull-right text-white" aria-label="Close"
+                        (click)="modalRef.hide()">
+                        <i class="fas fa-window-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                    <mol-grid #gridDaftarBarang [grid-id]="'GridDaftarBarang'" [grid-height]="300" [grid-lines]="'Both'"
+                        [grid-editSettings]="GridDaftarBarangEditSettings"
+                        [columns]="GridDaftarBarangColums.GridDaftarBarang.columns"
+                        [grid-DataSource]="GridDaftarBarangDataSource" [grid-toolbar]="GridDaftarBarangToolbar"
+                        (row-selected)="onSelectedRow($event)" (toolbar-click)="onToolbarClick($event)"
+                        (initialized)="onInitalizedGrid($event)">
+                    </mol-grid>
+                </div>
+                <div class="modal-footer background-abu-muda">
+                    <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</org-card-layout>

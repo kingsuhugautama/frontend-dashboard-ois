@@ -1,0 +1,167 @@
+{
+	"HIS Transaksi": {
+		"prefix": "histr",
+		"body": [
+		  "<org-card-layout [ButtonNav]=\"ButtonNav\" (onClickButtonNav)=\"onClickButtonNav(event)\">",
+		  " <form [formGroup]=\"form${1:formName}\">",
+		  "  <div class=\"row mb-2\">",
+		  "<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2\">",
+		  "",
+		  "</div>",
+		  "<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2\">",
+		  "",
+		  "</div>",
+		  "  </div>",
+		  "  <mol-grid #GridDetail [grid-id]=\"'GridDetail'\" [grid-height]=\"300\"",
+		  " [grid-DataSource]=\"GridConfig.GridDataSource\" [grid-paging]=\"true\"",
+		  " [grid-lines]=\"'Both'\"",
+		  " [grid-toolbar]=\"GridDetailToolbar\"",
+		  " (toolbar-click)=\"onToolbarClick(event)\"",
+		  " [columns]=\"GridConfig.GridColumns\">",
+		  "  </mol-grid>",
+		  "",
+		  "  <div class=\"row\">",
+		  "<div class=\"col-sm-8\">",
+		  "",
+		  "</div>",
+		  "<div class=\"col-sm-4\">",
+		  " <mol-input-text [label]=\"'Total Transaksi'\" [isFooter]=\"true\" formControlName=\"total_transaksi\" [inputFieldState]=\"'detail'\"></mol-input-text>",
+		  " <mol-input-text [label]=\"'Jumlah Item'\" [isFooter]=\"true\" formControlName=\"jumlah_item\" [inputFieldState]=\"'detail'\"></mol-input-text>",
+		  "</div>",
+		  "  </div>",
+		  " </form>",
+		  "<!-- Modal Dialog  -->",
+		  " <ng-template #modalDialog>",
+		  "  <div class=\"modal-header px-2 py-1 background-biru-muda text-white\">",
+		  "<h5 class=\"modal-title pull-left\">Input No. Batch</h5>",
+		  "<button type=\"button\" class=\"btn pull-right text-white\" aria-label=\"Close\"",
+		  " (click)=\"modalRef.hide()\">",
+		  " <i class=\"fas fa-window-close\"></i>",
+		  "</button>",
+		  "  </div>",
+		  "  <div class=\"modal-body p-0\">",
+		  "",
+		  "  </div>",
+		  "  <div class=\"modal-footer background-abu-muda\">",
+		  "<button type=\"button\" class=\"btn btn-primary\">Simpan</button>",
+		  "  </div>",
+		  " </ng-template>",
+		  "</org-card-layout>"
+		],
+		"description": "HIS Transaksi"
+	},
+	"HIS Input Text": {
+		"prefix": "hisintxt",
+		"body": [
+		  "<mol-input-text [label]=\"'${1:label}'\" formControlName=\"${2:formControlName}\" [inputFieldState]=\"inputFieldState\"></mol-input-text>"
+		],
+		"description": "HIS Input Text"
+	},
+	"HIS INPUT TEXT WITH VALIDATION": {
+		"prefix": "hisintxtvalidation",
+		"body": [
+		  "<mol-input-text [label]=\"'${1:label}'\" formControlName=\"${2:formControlName}\"",
+		  "\t[IsFormControlInvalid]=\"${2:formControlName}.invalid\"",
+		  "\t[ValidatorsCaption]=\"'${1:label} Tidak Boleh Kosong'\"",
+		  "\t[inputFieldState]=\"inputFieldState\">",
+		  "</mol-input-text>"
+		],
+		"description": "HIS INPUT TEXT WITH VALIDATION"
+	},
+	"HIS Input Date": {
+		"prefix": "hisindate",
+		"body": [
+		  "<mol-datepicker-syncfusion [label]=\"'${1:label}'\" [format]=\"'dd MMMM yyyy'\"",
+		  "\tformControlName=\"${2:formControlName}\">",
+		  "</mol-datepicker-syncfusion>"
+		],
+		"description": "HIS Input Date"
+	},
+	"HIS Input Look Up": {
+		"prefix": "hisinloo",
+		"body": [
+		  "<org-input-look-up #Lookup${1:nama} [lookup-url]=\"url${1:nama}\" [idTitle]=\"'${2:title}'\" [modal-title]=\"'Data ${1:nama}'\"",
+		  "\t(onGetSelectedData)=\"heandleSelected${1:nama}($event)\" [columns]=\"settingGrid.Lookup${1:nama}.columns\"",
+		  "\t[filter-lookup]=\"settingGrid.Lookup${1:nama}.filter\" [label]=\"'${3:label}'\">",
+		  "</org-input-look-up>"
+		],
+		"description": "HIS Input Date"
+	},
+	"HIS Input Look Up Kode": {
+		"prefix": "hisinlookode",
+		"body": [
+		  "<org-input-look-up-kode #LookupKode${1:nama} [lookup-url]=\"url${1:nama}\" [idKode]=\"'${2:id}'\" [modal-title]=\"'Data ${1:nama}'\"",
+		  "\t[idTitle]=\"'${3:title}'\" (onGetSelectedData)=\"heandleSelected${1:nama}($event)\"",
+		  "\t[columns]=\"settingGrid.Lookup${1:nama}.columns\" [filter-lookup]=\"settingGrid.Lookup${1:nama}.filter\"",
+		  "\t[label]=\"'${4:label}'\">",
+		  "</org-input-look-up-kode>"	
+		],
+		"description": "HIS Input Date"
+	},
+	"HIS Input Textarea": {
+		"prefix": "hisinarea",
+		"body": [
+		  "<mol-input-textarea [label]=\"'${1:label}'\" formControlName=\"${2:formControlName}\"></mol-input-textarea>"
+		],
+		"description": "HIS Input Date"
+	},
+	"HIS MASTER DATA VIEW HTML": {
+		"prefix": "hisms",
+		"body": [
+		  "<org-card-layout [ButtonNav]=\"TabId == 'Input' ? ButtonNav : []\" (onClickButtonNav)=\"handleClickButtonNav($event)\">",
+		  "\t<org-tabs #OrgTabsRef [showHeader]=\"false\" (onGetSelectedTabId)=\"handleSelectedTabId($event)\">",
+		  "\t\t<!-- Data -->",
+		  "\t\t<org-tabs-item>",
+		  "\t\t\t<org-tabs-label [Id]=\"'Data'\">Data ${1:Nama}</org-tabs-label>",
+		  "\t\t\t<org-tabs-body>",
+		  "\t\t\t\t<mol-grid",
+		  "\t\t\t\t\t#GridData",
+		  "\t\t\t\t\t[grid-height]=\"300\"",
+		  "\t\t\t\t\t[grid-DataSource]=\"GridDatasource\"",
+		  "\t\t\t\t\t[grid-paging]=\"false\"",
+		  "\t\t\t\t\t[grid-editSettings]=\"GridDataEditSettings\"",
+		  "\t\t\t\t\t[grid-lines]=\"'Both'\"",
+		  "\t\t\t\t\t[grid-toolbar]=\"GridDataToolbar\"",
+		  "\t\t\t\t\t[columns]=\"GridConfig.GridColumns\"",
+		  "\t\t\t\t\t(row-selected)=\"handleSelectedRow($event)\"",
+		  "\t\t\t\t\t(toolbar-click)=\"handleToolbarClick($event)\"",
+		  "\t\t\t\t\t(load-grid)=\"handleLoadGrid($event)\"",
+		  "\t\t\t\t\t(initialized)=\"InitalizedGrid($event)\"",
+		  "\t\t\t\t\t(command-click)=\"handleClickCommandGrid($event)\"",
+		  "\t\t\t\t\t(action-complete)=\"handleActionComplete($event)\"></mol-grid>",
+		  "\t\t\t</org-tabs-body>",
+		  "\t\t</org-tabs-item>",
+		  "\t\t<!-- Input -->",
+		  "\t\t<org-tabs-item>",
+		  "\t\t\t<org-tabs-label [Id]=\"'Input'\">Input ${1:Nama}</org-tabs-label>",
+		  "\t\t\t<org-tabs-body>",
+		  "\t\t\t\t<form [formGroup]=\"FormInputData\" class=\"p-2\">",
+		  "\t\t\t\t\t<div class=\"row mb-2\">",
+		  "\t\t\t\t\t\t<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2\">",
+		  "\t\t\t\t\t\t\t<mol-input-text ",
+		  "\t\t\t\t\t\t\t\t[label]=\"'Kode ${1:Nama}'\" ",
+		  "\t\t\t\t\t\t\t\tformControlName=\"kode_${2:field}\"",
+		  "\t\t\t\t\t\t\t\t[IsFormControlInvalid]=\"kode_${2:field}.invalid\"",
+		  "\t\t\t\t\t\t\t\t[ValidatorsCaption]=\"'Kode ${1:Nama} Tidak Boleh Kosong'\"",
+		  "\t\t\t\t\t\t\t\t[inputFieldState]=\"inputFieldState\"",
+		  "\t\t\t\t\t\t\t\t[disabled]=\"inputFieldState==='edit'\"",
+		  "\t\t\t\t\t\t\t\t>",
+		  "\t\t\t\t\t\t\t</mol-input-text>",
+		  "\t\t\t\t\t\t\t<mol-input-text ",
+		  "\t\t\t\t\t\t\t\t[label]=\"'Nama ${1:Nama}'\" ",
+		  "\t\t\t\t\t\t\t\tformControlName=\"nama_${2:field}\"",
+		  "\t\t\t\t\t\t\t\t[IsFormControlInvalid]=\"nama_${2:field}.invalid\"",
+		  "\t\t\t\t\t\t\t\t[ValidatorsCaption]=\"'Nama ${1:Nama} Tidak Boleh Kosong'\"",
+		  "\t\t\t\t\t\t\t\t[inputFieldState]=\"inputFieldState\">",
+		  "\t\t\t\t\t\t\t</mol-input-text>",
+		  "\t\t\t\t\t\t</div>",
+		  "\t\t\t\t\t</div>",
+		  "\t\t\t\t</form>",
+		  "\t\t\t</org-tabs-body>",
+		  "\t\t</org-tabs-item>",
+		  "\t</org-tabs>",
+		  "</org-card-layout>"
+		],
+		"description": "HIS MASTER DATA VIEW HTML"
+	}
+}

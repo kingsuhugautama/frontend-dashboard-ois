@@ -1,0 +1,19 @@
+<div class="row mb-2">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <atm-label [LabelCaption]="label"></atm-label>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <atm-input [value]="value" [inputFieldState]="inputFieldState" (change)="doChange($event)"
+                    (click)="doTouched($event)">
+                </atm-input>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <atm-input [value]="value" [inputFieldState]="inputFieldState" (change)="doChange($event)"
+                    (click)="doTouched($event)">
+                </atm-input>
+            </div>
+        </div>
+    </div>
+</div>

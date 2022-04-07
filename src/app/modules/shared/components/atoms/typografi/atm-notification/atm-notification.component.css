@@ -1,0 +1,15 @@
+.notif {
+  right: 0;
+  margin-left: auto;
+  margin-bottom: 0.5em;
+}
+
+div.toast-header > button.btn-close {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+.toast-header > .btn-close {
+  margin-right: 0 !important;
+  margin-left: 12.75rem !important;
+}

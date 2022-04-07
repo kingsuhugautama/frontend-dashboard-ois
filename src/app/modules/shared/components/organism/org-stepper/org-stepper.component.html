@@ -1,0 +1,7 @@
+<mat-stepper #Stepper [orientation]="StepperOrientation">
+    <mat-step *ngFor="let item of StepperDatasource">
+        <ng-template matStepLabel>{{ item.label }}</ng-template>
+
+        <ng-content></ng-content>
+    </mat-step>
+</mat-stepper>

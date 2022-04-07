@@ -1,0 +1,8 @@
+<div class="input-group">
+    <input [id]="inputId" type="text" [value]="value" class="form-control form-select-sm" [disabled]="disableTitle">
+
+    <button [disabled]="disabled" [id]="'btnInputGroup'+inputId" class="btn btn-primary" type="button"
+        style=" padding: .1rem .8rem; background-color: '#00afff; border: 0';" (click)="handelClick($event)">
+        <i class="fas fa-search"></i>&nbsp; {{ buttonShortcut }}
+    </button>
+</div>

@@ -1,0 +1,20 @@
+<div class="mb-2 row">
+    <div class="col-sm-4">
+        <atm-label [LabelCaption]="label" [isFooter]="isFooter"></atm-label>
+    </div>
+    <div class="col-sm-8">
+        <!-- <atm-input [id]="id" [value]="value" [inputFieldState]="inputFieldState" (change)="doChange($event)"
+            (click)="doTouched($event)" [isFooter]="isFooter" [disabled]="disabled"></atm-input> -->
+
+        <ejs-numerictextbox [id]="id" [value]="value" (change)="doChange($event)" (click)="doTouched($event)"
+            [isFooter]="isFooter" [disabled]="disabled" [format]="format" [showSpinButton]="false"
+            [class.see-detail]="inputFieldState === 'detail'" [class.is-footer]="isFooter"
+            [readonly]="inputFieldState === 'detail'" style="text-align: right; padding-right: 5px;">
+        </ejs-numerictextbox>
+
+        <atm-validators [IsFormControlTouched]="touched" [IsFormControlInvalid]="IsFormControlInvalid"
+            [ValidatorsCaption]="ValidatorsCaption">
+        </atm-validators>
+
+    </div>
+</div>

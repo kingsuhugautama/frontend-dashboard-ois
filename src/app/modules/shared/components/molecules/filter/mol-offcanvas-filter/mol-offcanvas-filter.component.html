@@ -1,0 +1,104 @@
+<div class="row align-items-center">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!-- Button Open Offcanvas -->
+        <button id="ButtonOpenOffcanvas" class="btn btn-outline-primary btn-sm px-3" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter">
+            <i class="fas fa-search fa-xs"></i> Cari Data
+        </button>
+
+        <span *ngFor=" let item of AdvancedFilterArray; let i=index" class="badge bg-primary mx-2 pt-1 "
+            style="font-size: 14px;">
+            {{ item.columnText }} {{ item.filter == 'equal' ? '=' : '%' }} {{ item.searchText }} &nbsp;
+            <span class="mb-0" (click)="handleDeleteItemFromBadge(i)"><i class="fas fa-times text-danger"></i></span>
+        </span>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFilter" aria-labelledby="offcanvasFilterLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasFilterLabel">Advanced Filter</h5>
+        <button id="btnClose" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Input Filter -->
+        <div class="row mb-4">
+            <!-- Column Filter -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pe-1">
+                <atm-label [LabelCaption]="'Column'"></atm-label>
+                <ejs-dropdownlist #Column [dataSource]="FilterColumnDatasource" [fields]="FilterColumnFields"
+                    (change)="handleChangeFilterColumns(Column.text)">
+                </ejs-dropdownlist>
+            </div>
+
+            <!-- Condition Filter -->
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 px-1">
+                <atm-label [LabelCaption]="'Condition'"></atm-label>
+                <ejs-dropdownlist #Condition [dataSource]="FilterConditionDatasource" [fields]="FilterConditionFields">
+                </ejs-dropdownlist>
+            </div>
+
+            <!-- Value Filter -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 px-1">
+                <atm-label [LabelCaption]="'Value'"></atm-label>
+
+                <input *ngIf="FilterState == 'String'" #Value id="filterValue" type="text"
+                    class="form-control form-select-sm" (keyup.enter)="handleClickAddFilter()" />
+
+                <ejs-datepicker *ngIf="FilterState == 'Date'" #DateValue [format]="'yyyy-MM-dd'"
+                    (keyup.enter)="handleClickAddFilter()">
+                </ejs-datepicker>
+
+                <ejs-dropdownlist *ngIf="FilterState == 'Dropdown'" #DropdownValue
+                    [dataSource]="FilterDropdownDatasource" [fields]="FilterDropdownFields"
+                    (keyup.enter)="handleClickAddFilter()">
+                </ejs-dropdownlist>
+            </div>
+
+            <!-- Button Add -->
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ps-1 text-center cursor-pointer" style="padding-top: 34px;"
+                [hidden]="!Column.value && !Condition.value" (click)="handleClickAddFilter()">
+                <i class="fas fa-plus text-biru-tua fa-lg"></i>
+            </div>
+        </div>
+
+        <!-- Listing Filter -->
+        <div class="card border-0">
+            <div class="card-body p-1"
+                style="height: calc(100vh - 20rem); max-height: calc(100vh - 20rem); overflow-y: auto">
+                <div class="row px-0 mx-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                        *ngFor="let item of AdvancedFilterArray; let i = index">
+                        <div class="row pb-2 mb-2 border-bottom align-items-center">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pe-1">
+                                <p class="text-black mb-0">
+                                    {{ i + 1 }}. &nbsp; {{ item.columnText }}
+                                </p>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 px-2">
+                                <p class="text-black mb-0">{{ item.filter }}</p>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 px-2">
+                                <p class="text-black mb-0">
+                                    {{ item.searchText }}
+                                </p>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ps-1 text-center cursor-pointer"
+                                (click)="handleDeleteFilterItem(i)">
+                                <i class="fas fa-times text-danger fa-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-0 bg-white text-end px-0">
+                <button class="btn btn-warning btn-sm mx-3" type="button" (click)="AdvancedFilterArray = []">
+                    <i class="fas fa-redo-alt fa-sm"></i> Reset
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" (click)="handlePencarian()">
+                    <i class="fas fa-search fa-sm"></i> Cari
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

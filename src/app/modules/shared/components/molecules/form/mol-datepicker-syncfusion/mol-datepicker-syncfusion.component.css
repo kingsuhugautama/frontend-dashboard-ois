@@ -1,0 +1,12 @@
+.see-detail {
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    background-color: white !important;
+}
+  
+.see-detail:focus,
+.see-detail:active {
+    box-shadow: none !important;
+}

@@ -1,0 +1,19 @@
+<org-card-layout>
+    <org-tabs #OrgTabsRef (onGetSelectedTabId)="onGetSelectedTabId($event)">
+        <!-- Data Role Menu -->
+        <org-tabs-item>
+            <org-tabs-label [Id]="'DataRoleActive'">Data Role Menu</org-tabs-label>
+            <org-tabs-body>
+                <app-data-role [RolesData]="RolesData" [MainMenu]="MainMenu"></app-data-role>
+            </org-tabs-body>
+        </org-tabs-item>
+
+        <!-- Input Role Menu -->
+        <org-tabs-item>
+            <org-tabs-label [Id]="'InputRoleMenu'">Input Role Menu</org-tabs-label>
+            <org-tabs-body>
+                <app-input-role [RolesData]="RolesData"></app-input-role>
+            </org-tabs-body>
+        </org-tabs-item>
+    </org-tabs>
+</org-card-layout>

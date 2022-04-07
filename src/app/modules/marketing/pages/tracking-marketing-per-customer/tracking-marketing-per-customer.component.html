@@ -1,0 +1,158 @@
+<org-card-layout>
+    <!-- Customer -->
+    <div class="row mb-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="row mb-2">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <atm-label [LabelCaption]="'Customer'"></atm-label>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <ejs-dropdownlist #DropdownCustomer [dataSource]="DropdownCustomerDatasource"
+                        [fields]="DropdownCustomerField" [allowFiltering]="true"
+                        (change)="handleChangeDropdownCustomer($event)">
+                    </ejs-dropdownlist>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scheduler Timeline -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ejs-schedule #ScheduleTimelineComp width="100%" height="calc(100vh - 12.5rem)"
+                [eventSettings]="ScheduleEventSettings" [readonly]="true" [selectedDate]="CurrentDate"
+                [rowAutoHeight]="true" [currentView]="'Month'" (eventRendered)="onScheduleEventRendered($event)"
+                (navigating)="onScheduleNavigatingView($event)">
+                <e-views>
+                    <e-view option="Month"></e-view>
+                    <e-view option="TimelineMonth" [displayName]="'Timeline'"></e-view>
+                </e-views>
+                <ng-template #quickInfoTemplatesFooter let-data>
+                    <ng-container [ngTemplateOutlet]="data.elementType == 'cell' ? cellFooter : eventFooter"
+                        [ngTemplateOutletContext]="{data:data}">
+                    </ng-container>
+                </ng-template>
+                <ng-template #cellFooter let-data="data">
+                    <div class="e-cell-footer">
+                        <button ejs-button id="more-details" cssClass="e-flat" (click)="onScheduleClickDetail(data)">
+                            More Details
+                        </button>
+                    </div>
+                </ng-template>
+                <ng-template #eventFooter let-data="data">
+                    <div class="e-event-footer">
+                        <button class="btn btn-primary btn-sm" (click)="onScheduleClickDetail(data)">
+                            More Details
+                        </button>
+                    </div>
+                </ng-template>
+            </ejs-schedule>
+        </div>
+    </div>
+
+    <!-- Offcanvas Timeline -->
+    <button id="btnTimeline" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasTimeline" aria-controls="offcanvasTimeline" [hidden]="true">
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTimeline" aria-labelledby="offcanvasTimelineLabel"
+        style="width: 35rem; background-color: var(--bs-gray-100);">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasTimelineLabel">
+                Timeline Customer {{ SelectedDataCustomer ? SelectedDataCustomer.nama_customer : '' }}
+            </h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body h-100" style="overflow-y: hidden;">
+            <!-- Pencarian -->
+            <div class="row mb-2 pb-3 border-bottom">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pe-0">
+                    <ejs-datepicker #DatepickerYearComp [start]="'Decade'" [depth]="'Decade'" [format]="'yyyy'"
+                        [value]="CurrentDate" (change)="handleChangeDatepickerYear($event)">
+                    </ejs-datepicker>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 px-1">
+                    <ejs-datepicker #DatepickerMonthComp [start]="'Year'" [depth]="'Year'" [format]="'MMMM'"
+                        [min]="DatepickerMonthMin" [max]="DatepickerMonthMax"
+                        (change)="handleChangeDatepickerMonth($event)">
+                    </ejs-datepicker>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ps-0">
+                    <ejs-datepicker #DatepickerDayComp [start]="'Month'" [depth]="'Month'" [format]="'dd'"
+                        [min]="DatepickerDayMin" [max]="DatepickerDayMax">
+                    </ejs-datepicker>
+                </div>
+            </div>
+
+            <!-- Timeline View -->
+            <div class="row h-100 pt-2" style="overflow-y: auto;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <mol-vertical-timeline #VerticalTimelineComp></mol-vertical-timeline>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detail -->
+    <button id="btnModalDetail" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#modalDetail" [hidden]="true">
+    </button>
+
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered border-0">
+            <div class="modal-content">
+                <div class="modal-header px-3 py-2"
+                    [ngStyle]="{ 'background-color': ScheduleSelectedData?.CategoryColor }">
+                    <h5 class="modal-title text-white" id="modalDetailLabel">
+                        {{ ScheduleSelectedData?.TopicName }} {{ ScheduleSelectedData?.Subject }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" [formGroup]="FormDetail">
+                    <div class="row mb-3">
+                        <!-- Sales dan Topic -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label class="form-label form-select-sm p-0 mb-1">PIC Customer</label>
+                            <input type="text" class="form-control form-select-sm" formControlName="PIC" readonly>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label class="form-label form-select-sm p-0 mb-1">Deskripsi</label>
+                            <input type="text" class="form-control form-select-sm" formControlName="Description"
+                                readonly>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <!-- Start Time and End Time -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label class="form-label form-select-sm p-0 mb-1">Waktu Check In</label>
+                            <input type="text" class="form-control form-select-sm" formControlName="StartTime" readonly>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label class="form-label form-select-sm p-0 mb-1">Waktu Check Out</label>
+                            <input type="text" class="form-control form-select-sm" formControlName="EndTime" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row mb-0">
+                        <!-- Longitude and Latitude -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label class="form-label form-select-sm p-0 mb-1">Longitude</label>
+                            <input type="text" class="form-control form-select-sm" formControlName="Longitude" readonly>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label class="form-label form-select-sm p-0 mb-1">Latitude</label>
+                            <input type="text" class="form-control form-select-sm" formControlName="Latitude" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer p-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</org-card-layout>

@@ -1,0 +1,195 @@
+<div class="row">
+    <!-- Card Top Menu -->
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 px-1">
+        <div class="card">
+            <div class="card-header py-2">
+                <p class="mb-0 cardTitleSetupMenu">Daftar Main Menu</p>
+            </div>
+            <div class="card-body p-1 cardBodySetupMenu">
+                <ul class="list-group">
+                    <li [id]="item.id_menu" class="list-group-item cursor-pointer p-0 mb-1 list-sidebar-item"
+                        *ngFor="let item of MainMenu">
+                        <!-- List Main Menu -->
+                        <div class="items-group mx-0 px-2" data-bs-toggle="tooltip" title="{{ item.caption }}"
+                            (click)="item.childMenu?.length >= 1 ? onTogglingHideChildMenu(item.id_menu) : onGetMenuSidebar(item.caption, item.id_menu)">
+                            <div class="col-12 me-1">
+                                <div class="row align-items-center">
+                                    <div class="col-1 px-0 text-end">
+                                        <i class="fas fa-angle-right" [hidden]="item.childMenu?.length < 1"
+                                            id="{{item.id_menu}}Icon">
+                                        </i>
+                                    </div>
+                                    <div class="col-11">
+                                        <span class="font-cabin mb-2">{{ item.caption }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-1" [hidden]="item.childMenu?.length < 1">
+                                <span class="badge bg-primary">
+                                    <i class="fas fa-info-circle"></i>&nbsp; Lihat Detail
+                                </span>
+                            </div> -->
+                        </div>
+
+                        <!-- List Top Menu -->
+                        <ul class="list-group list-group-child is-hidden" id="{{ item.id_menu }}ChildMenu">
+                            <li class="list-group-item cursor-pointer p-0 mb-1"
+                                *ngFor="let childItem of item.childMenu">
+                                <div class="items-group-child mx-0 px-2" data-bs-toggle="tooltip"
+                                    title="{{ childItem.caption }}"
+                                    (click)="onGetMenuSidebar(childItem.caption, childItem.id_menu)">
+                                    <div class="col-12 ps-4 me-1">
+                                        <span class="font-cabin mb-2" style="font-size: 16px;">
+                                            {{ childItem.caption }}
+                                        </span>
+                                    </div>
+                                    <!-- <div class="col-1">
+                                        <span class="badge bg-primary">
+                                            <i class="fas fa-info-circle"></i>&nbsp; Lihat Detail
+                                        </span>
+                                    </div> -->
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Sidebar Menu -->
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 px-1">
+        <div class="card">
+            <div class="card-header py-2">
+                <p class="mb-0 cardTitleSetupMenu">{{ CardSidebarMenuTitle }}</p>
+            </div>
+            <div class="card-body p-1 cardBodySetupMenu">
+                <!-- Apabila MenuSidebar Length lebih dari 1 -->
+                <ul class="list-group" *ngIf="MenuSidebar?.length >= 1">
+                    <li [id]="item.id_menu_sidebar" class="list-group-item cursor-pointer p-0 mb-1 list-sidebar-item"
+                        *ngFor="let item of MenuSidebar">
+
+                        <div class="items-group mx-0 px-2" data-bs-toggle="tooltip" title="{{ item.caption }}"
+                            *ngIf="item">
+                            <div class="me-1 px-1" [class]="item.childSidebarMenu?.length >= 1 ? 'col-11' : 'col-10'"
+                                style="padding-top:3px"
+                                (click)="item.childSidebarMenu?.length >= 1 ? onTogglingHideSidebarChildMenu(item.id_menu_sidebar) : null">
+
+                                <i class="fas fa-angle-right" [hidden]="item.childSidebarMenu?.length < 1"
+                                    id="{{item.id_menu_sidebar}}SidebarIcon">
+                                </i>&nbsp; {{ item.caption }}
+
+                            </div>
+
+                            <div class="col-1 text-end px-2" [hidden]="item.childSidebarMenu?.length >= 1"
+                                style="padding-top:3px" (click)="onSeeDetailButtonAndFieldGrid(item)">
+                                <span class="badge bg-info">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-1 text-start px-2">
+                                <div class="form-check">
+                                    <input class="form-check-input form-select-lg" type="checkbox" value="true"
+                                        id="{{ item.id_menu_sidebar }}Checkbox" [checked]="item.status_akses"
+                                        (change)="onChangeChecboxActiveSidebarMenu($event, item)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="list-group list-group-child is-hidden" id="{{ item.id_menu_sidebar }}SidebarChild">
+                            <li class="list-group-item cursor-pointer p-0 mb-1"
+                                *ngFor="let childItem of item.childSidebarMenu">
+                                <div class="items-group-child mx-0 px-2" data-bs-toggle="tooltip"
+                                    title="{{ childItem.caption }}">
+
+                                    <div class="col-10 ps-4 me-1" style="padding-top:3px">
+                                        <span class="font-cabin mb-2" style="font-size: 16px;">
+                                            {{ childItem.caption }}
+                                        </span>
+                                    </div>
+
+                                    <div class="col-1 text-end px-2" style="padding-top:3px"
+                                        (click)="onSeeDetailButtonAndFieldGrid(childItem)">
+                                        <span class="badge bg-info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-1 text-start px-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input form-select-lg" type="checkbox" value="true"
+                                                id="{{ childItem.id_menu_sidebar }}Checkbox"
+                                                [checked]="childItem.status_akses"
+                                                (change)="onChangeChecboxActiveSidebarMenu($event, childItem)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Apabila MenuSidebar Length kurang dari 1 -->
+                <div class="row mx-0 py-2" *ngIf="MenuSidebar?.length < 1">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p class="text-abu-tua mb-0">No Record to Display</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Dialog Add / Edit Button & Field Grid -->
+    <ng-template #modalDialogSetupRoleMenu>
+        <div class="modal-header px-2 py-1 background-biru-muda text-white">
+            <h5 class="modal-title pull-left">{{ ModalDialogSetupRoleMenuTitle }}</h5>
+            <button type="button" class="btn pull-right text-white" aria-label="Close" (click)="modalRef.hide()">
+                <i class="fas fa-window-close"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- Grid Field Grid -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="card-title mb-0">Daftar Field Grid</p>
+                        </div>
+                        <div class="card-body p-0">
+                            <mol-grid #gridSetupRoleFieldGrid [grid-id]="'GridSetupRoleFieldGrid'" [grid-height]="150"
+                                [grid-lines]="'Both'" [grid-editSettings]="GridSetupRoleFieldGridEditSettings"
+                                [columns]="GridSetupFieldGridColums.GridRoleFieldGrid.columns"
+                                [grid-DataSource]="GridSetupFieldGridDataSource"
+                                (row-selected)="onSelectedRowGridFieldGrid($event)"
+                                (action-complete)="onActionCompleteGridField($event)"
+                                (initialized)="onInitalizedGridField($event)">
+                            </mol-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Button -->
+            <div class="row mb-2">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="card-title mb-0">Daftar Button</p>
+                        </div>
+                        <div class="card-body p-0">
+                            <mol-grid #gridSetupRoleButton [grid-id]="'GridSetupRoleButton'" [grid-height]="150"
+                                [grid-lines]="'Both'" [grid-editSettings]="GridSetupRoleButtonEditSettings"
+                                [columns]="GridSetupRoleButtonColums.GridRoleButton.columns"
+                                [grid-DataSource]="GridSetupRoleButtonDataSource"
+                                (row-selected)="onSelectedRowGridButton($event)"
+                                (action-complete)="onActionCompleteGridButton($event)"
+                                (initialized)="onInitalizedGridButton($event)">
+                            </mol-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,23 @@
+.btn {
+  background-color: transparent;
+  color: var(--hitam);
+  border-bottom: 0;
+  border-radius: 0px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+.btn:focus,
+.btn:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn:hover {
+  border-radius: 4px;
+  background-color: var(--biru-muda);
+  color: white;
+  transition: all 0.25s;
+}

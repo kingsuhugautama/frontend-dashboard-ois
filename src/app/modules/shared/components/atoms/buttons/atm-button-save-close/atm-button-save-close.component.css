@@ -1,0 +1,16 @@
+.app-btn-master{
+    color:#432158;
+    font-weight: 500;
+}
+
+.btn-primary-outline{
+    background-color: transparent;
+}
+
+.app-btn-master:hover{
+    border-bottom: 3px solid #8A7497 !important;
+}
+
+.icon-btn{
+    margin-right: 5px;
+}

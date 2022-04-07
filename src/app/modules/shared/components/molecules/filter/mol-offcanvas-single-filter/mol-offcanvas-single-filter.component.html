@@ -1,0 +1,45 @@
+<div class="row align-items-center">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!-- Button Open Offcanvas -->
+        <button id="ButtonOpenOffcanvas" class="btn btn-outline-primary btn-sm px-3" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter">
+            <i class="fas fa-search fa-xs"></i> Cari Data
+        </button>
+
+        <span *ngFor=" let item of AdvancedFilterArray; let i=index" class="badge bg-primary mx-2 pt-1 "
+            style="font-size: 14px;">
+            {{ item.columnText }} {{ item.filter == 'equal' ? '=' : '%' }} {{ item.searchText }} &nbsp;
+            <span class="mb-0" (click)="handleDeleteItemFromBadge(i)"><i class="fas fa-times text-danger"></i></span>
+        </span>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFilter" aria-labelledby="offcanvasFilterLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasFilterLabel">Advanced Filter</h5>
+        <button id="btnClose" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row mb-4">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pe-1">
+                <atm-label [LabelCaption]="FilterDropdownColumn['caption']"></atm-label>
+                <ejs-dropdownlist #DropdownAdvancedFilter [dataSource]="FilterDropdownDatasource"
+                    [allowFiltering]="true" [fields]="FilterDropdownFields"
+                    (change)="handleChangeDropdownAdvancedFilter()">
+                </ejs-dropdownlist>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-end">
+                <button class="btn btn-warning btn-sm mx-3" type="button" (click)="AdvancedFilterArray = []">
+                    <i class="fas fa-redo-alt fa-sm"></i> Reset
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" (click)="handlePencarian()">
+                    <i class="fas fa-search fa-sm"></i> Cari
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

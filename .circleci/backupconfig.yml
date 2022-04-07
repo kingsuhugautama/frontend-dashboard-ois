@@ -1,0 +1,19 @@
+version: 2
+machine:
+  services:
+    - docker
+  node:
+    version: 14.17.0
+  environment:
+    REPO: dockerhiscis/angular
+
+# Dependencies
+dependencies:
+  pre:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
+
+deployment:
+  production:
+    commands:
+      - docker build --rm=false -t $REPO:prod .
+      - docker push $REPO:prod

@@ -1,0 +1,6 @@
+<!-- {{IsFormControlInvalid}} {{IsFormControlTouched}} -->
+<div *ngIf="IsFormControlTouched && IsFormControlInvalid" class="alert alert-danger p-2 mt-1 mb-0">
+    <label class="text-danger font-cabin" *ngIf="IsFormControlInvalid">
+        {{ ValidatorsCaption }}
+    </label>
+</div>

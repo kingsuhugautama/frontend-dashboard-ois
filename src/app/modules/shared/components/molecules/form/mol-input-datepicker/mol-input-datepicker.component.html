@@ -1,0 +1,8 @@
+<div class="mb-2 row">
+    <div class="col-sm-4">
+        <atm-label [LabelCaption]="label"></atm-label>
+    </div>
+    <div class="col-sm-8">
+        <atm-datepicker [value]="value" (change)="doChange($event)"></atm-datepicker>
+    </div>
+</div>

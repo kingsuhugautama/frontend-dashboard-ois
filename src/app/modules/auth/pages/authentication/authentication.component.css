@@ -1,0 +1,38 @@
+section#section-authentication {
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.image-logo {
+  height: 2.5rem;
+  max-height: 2.5rem;
+}
+
+.div-input-auth {
+  padding-top: 25vh;
+}
+
+.div-text-image {
+  padding: 25vh 0 0 0;
+  margin: 0;
+  text-align: center;
+}
+
+.bg-image-auth {
+  height: 100vh;
+  max-height: 100vh;
+  background-image: url("../../../../../assets/image/authentication/image-login-2.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 50vw hsla(0, 0%, 6%, 0.3);
+}
+
+.atmNotifAuth {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 2;
+}

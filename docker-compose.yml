@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  frontend_his:
+    build:
+      context: .
+      dockerfile: Frontend.Dockerfile
+    image: his/frontend_his:${BUILD_DATE}.${BUILD_VERSION}
+    container_name: frontend_his
+    ports:
+      - "80:80"
+    networks:
+      - api-network
+      - gateway-network
+    volumes:
+      - /home/frontend-compose/volume/frontend_his_data:/usr/share/nginx/html
+
+networks:
+  api-network:
+    external: true
+  gateway-network:
+    external: true

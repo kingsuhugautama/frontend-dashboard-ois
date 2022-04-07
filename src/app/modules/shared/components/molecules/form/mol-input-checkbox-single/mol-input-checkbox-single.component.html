@@ -1,0 +1,14 @@
+<div class="mb-2 row">
+    <div class="col-sm-4">
+        <atm-label [LabelCaption]="label"></atm-label>
+    </div>
+    <div class="col-sm-8 p-1">
+        <input
+        class="form-check-input"
+        style="margin-left: 10px;"
+        type="checkbox"
+        [ngModel] = "checked"
+        (ngModelChange) = "onModelChange($event)"
+        >
+    </div>
+</div>

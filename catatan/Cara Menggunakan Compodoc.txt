@@ -1,0 +1,24 @@
+URL : https://compodoc.app/guides/installation.html.
+
+Langkah 1 : Instal Compodoc => npm install -g @compodoc/compodoc
+
+Langkah 2 : Buat file di root (Dibawah file tsconfig.app.json), buat file tsconfig.doc.json
+
+Langkah 3 : Tambahkan text dibawah ini ke file tsconfig.doc.json
+
+            {
+                "include": ["src/**/*.ts"],
+                "exclude": ["src/test.ts", "src/**/*.spec.ts", "src/app/file-to-exclude.ts"]
+            }
+
+Langkah 4 : Tambahkan text dibawah ini ke file package.json pada bagian script {}, dibawah "e2e": "ng e2e",
+
+             "compodoc": "npx compodoc -p tsconfig.doc.json"
+
+Langkah 5 : Jalankan command "npm run compodoc" untuk meng-generate component ke Compodoc. Component - component yg tergenerate akan tersimpan di folder "documentation"
+
+Langkah 6 : Jalankan command "compodoc -s" untuk menjalankan file index.html pada folder "documentation"
+
+Langkah 7 : Apabila Anda membuat component baru, jalankan command "compodoc -p tsconfig.doc.json -s" untuk menggenerate component ke Compodoc sekaligus menjalankan file index.html Compodoc
+
+Langkah 8 : End

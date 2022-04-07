@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <!-- Card Main Menu Tidak Aktif -->
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 px-1">
+        <div class="card">
+            <div class="card-header py-2">
+                <p class="mb-0 cardTitleSetupMenu">Daftar Main Menu Tidak Aktif</p>
+            </div>
+            <div class="card-body p-1 cardBodySetupMenu">
+                <ul class="list-group">
+                    <li [id]="item.id_menu" class="list-group-item cursor-pointer p-0 mb-1 list-sidebar-item"
+                        *ngFor="let item of MainMenuNonAktif; let i = index">
+                        <div class="items-group mx-0 px-2 align-items-center" data-bs-toggle="tooltip"
+                            title="{{ item.caption }}">
+                            <div class="col-11 px-1 me-1">
+                                <!-- MainMenu -->
+                                <row class="align-items-center">
+                                    <div class="col-12">
+                                        <span class="font-cabin mb-2 text-biru-tua">
+                                            {{ item.caption_menu_parent }}
+                                        </span>
+                                    </div>
+                                </row>
+
+                                <!-- Top Menu -->
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <span class="font-cabin mb-2 text-hitam-muda">
+                                            {{ item.caption }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <input class="form-check-input form-select-lg" type="checkbox" value="true"
+                                    id="{{ item.id_menu }}Checkbox" (change)="onCheckSelectedMenuNonAktif(item, i)">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 px-1 text-center">
+        <div class="row align-self-center align-items-center" style="padding-top: 10rem">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 mb-5">
+                <button class="btn btn-primary btn-sm" style="width: 3rem;" type="button"
+                    (click)="onClickAddToMenuAktif()">
+                    <i class="fas fa-angle-right"></i>
+                </button>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 mb-3">
+                <button class="btn btn-primary btn-sm" style="width: 3rem;" type="button"
+                    (click)="onClickRemoveFromMenuAktif()">
+                    <i class="fas fa-angle-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Main Menu Aktif -->
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 px-1">
+        <div class="card">
+            <div class="card-header py-2">
+                <p class="mb-0 cardTitleSetupMenu">Daftar Main Menu Aktif</p>
+            </div>
+            <div class="card-body p-1 cardBodySetupMenu">
+                <ul class="list-group">
+
+                    <li [id]="item.id_menu" class="list-group-item cursor-pointer p-0 mb-1 list-sidebar-item"
+                        *ngFor="let item of MainMenuAktif; let i = index">
+
+                        <!-- List Main Menu Aktif -->
+                        <div class="items-group mx-0 px-2" data-bs-toggle="tooltip" title="{{ item.caption }}">
+                            <div class="col-11 me-2"
+                                (click)="item.childMenu?.length >= 1 ? onTogglingHideChildMenu(item.id_menu) : null">
+                                <div class="row align-items-center">
+                                    <div class="col-1 px-0 text-end">
+                                        <i class="fas fa-angle-right" [hidden]="item.childMenu?.length < 1"
+                                            id="{{item.id_menu}}Icon">
+                                        </i>
+                                    </div>
+                                    <div class="col-11">
+                                        <span class="font-cabin mb-2">{{ item.caption }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="form-check">
+                                    <input class="form-check-input form-select-lg" type="checkbox" value="true"
+                                        id="{{ item.id_menu }}Checkbox" (change)="onCheckSelectedMenuAktif(item, i)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List Top Menu Aktif -->
+                        <ul class="list-group list-group-child is-hidden" id="{{ item.id_menu }}ChildMenu">
+                            <li class="list-group-item cursor-pointer p-0 mb-1"
+                                *ngFor="let childItem of item.childMenu; let j = index">
+                                <div class="items-group-child mx-0 px-2" data-bs-toggle="tooltip"
+                                    title="{{ childItem.caption }}">
+                                    <div class="col-11 ps-4 me-2">
+                                        <span class="font-cabin mb-2" style="font-size: 16px;">
+                                            {{ childItem.caption }}
+                                        </span>
+                                    </div>
+                                    <div class="col-1">
+                                        <div class="form-check">
+                                            <input class="form-check-input form-select-lg" type="checkbox" value="true"
+                                                id="{{ childItem.id_menu }}Checkbox"
+                                                (change)="onCheckSelectedMenuAktif(childItem, j)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

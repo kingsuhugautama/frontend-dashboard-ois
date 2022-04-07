@@ -1,0 +1,10 @@
+<div class="row mb-2">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <atm-label [LabelCaption]="label"></atm-label>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <ejs-dropdownlist #MolDropdown [dataSource]="DataSource" [fields]="Fields" [allowFiltering]="AllowFiltering"
+            (change)="doChange($event)">
+        </ejs-dropdownlist>
+    </div>
+</div>

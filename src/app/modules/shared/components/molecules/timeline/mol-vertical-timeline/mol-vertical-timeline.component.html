@@ -1,0 +1,50 @@
+<div class="uk-container uk-padding">
+    <div class="uk-timeline">
+        <div *ngFor="let item of Datasource$ | async" class="uk-timeline-item mb-4">
+            <div class="uk-timeline-icon">
+                <span class="uk-badge">
+                    <i class="{{ item.Icon }}"></i>
+                </span>
+            </div>
+            <div class="uk-timeline-content">
+                <div class="card card_vertical_timeline shadow-sm">
+                    <div class="card-body p-3">
+                        <div class="row px-2 row_card_body" [ngStyle]="{ 'border-color':  item.CategoryColor }">
+                            <div class="col-lg-12 col-md-12 col-sm-12 ps-0">
+                                <!-- Date and Topic -->
+                                <div class="row align-items-center mb-1">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bg-abu">
+                                        <h5 class="card-title mb-0 text-hitam fw-bold">
+                                            {{ item.StartTime | date: 'dd MMM, yyyy' }}
+                                        </h5>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-end">
+                                        <span class="badge w-100 text-center"
+                                            [ngStyle]="{ 'background-color': item.CategoryColor }"
+                                            style="font-size: 13px; border-radius: 7px; font-weight: 500;">
+                                            {{ item.TopicName }}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Subject -->
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <p class="text-biru-muda mb-0" style="font-size: 13px">
+                                            {{ item.StartTime | date: 'HH:mm' }} - {{ item.EndTime | date: 'HH:mm' }}
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <p class="mb-0" style="color: var(--bs-gray-700);">
+                                            {{ item.Subject }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

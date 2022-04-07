@@ -1,0 +1,64 @@
+<div class="row mx-0 px-0">
+    <!-- List Sidebar Menu -->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-2 px-0" [class.is-ada-button-sidebar]="IsAdaButtonSidebar">
+        <ul class="list-group">
+            <!-- Main Menu Title -->
+            <li id="MainMenuTitle" class="list-group-item-title cursor-pointer background-biru-muda p-0 mb-2">
+                <div class="items-group-title mx-0 px-0 div-main-menu-title" data-bs-toggle="tooltip"
+                    title="{{ SidebarMenuTitle }}" (click)="onClickBackToMainMenu($event)">
+                    <div class="col-2 text-center" [class]="SidebarCollapse ? 'col-12' : 'col-2'">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="col-10" [class]="SidebarCollapse ? 'is-hidden' : 'is-show' ">
+                        <span class="font-cabin mb-2">{{ SidebarMenuTitle }}</span>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Sidebar Menu Item -->
+            <li [id]="item.id" class="list-group-item cursor-pointer p-0 mb-1 list-sidebar-item"
+                *ngFor="let item of MenuSidebar">
+                <div class="items-group mx-0 px-2" data-bs-toggle="tooltip" title="{{ item.caption }}"
+                    (click)="item.sidebarChild?.length >= 1 ? onTogglingHideChildMenu(item.id_menu_sidebar) : onClickSidebarItem(item) "
+                    [hidden]="item.caption == 'Beranda'">
+                    <div class="col-1 text-center" [hidden]="SidebarCollapse">
+                        <i class="fas fa-angle-right" [hidden]="item.sidebarChild?.length < 1"
+                            id="{{ item.id_menu_sidebar }}Icon"> </i>
+                    </div>
+                    <div class="col-2 text-center" [class]="SidebarCollapse ? 'col-12' : 'col-2'">
+                        <i class="{{ item.icon }} fa-sm"></i>
+                    </div>
+                    <div class="col-9" [class]="SidebarCollapse ? 'is-hidden' : 'is-show' ">
+                        <span class="font-cabin mb-2" style="font-size: 14px">
+                            {{ item.caption }}
+                        </span>
+                    </div>
+                </div>
+
+                <ul class="list-group list-group-child is-hidden" id="{{ item.id_menu_sidebar }}ChildMenu"
+                    [hidden]="SidebarCollapse">
+                    <li class="list-group-item cursor-pointer p-0 mb-1" *ngFor="let childItem of item.sidebarChild"
+                        (click)="onClickSidebarItem(childItem)">
+                        <div class="items-group-child mx-0 px-0" data-bs-toggle="tooltip"
+                            title="{{ childItem.caption }}">
+                            <div class="col-3 text-end">
+                                <i class="{{ childItem.icon }}"></i>
+                            </div>
+                            <div class="col-9 ps-3">
+                                <span class="font-cabin mb-2">{{ childItem.caption }}</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Button Sidebar -->
+    <div *ngIf="IsAdaButtonSidebar" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-grid gap-2">
+        <button class="btn btn-primary btn-sm" type="button" (click)="handleClickButtonSidebar($event)">
+            <i class="fas {{ ButtonSidebarIcon }}"></i>&nbsp;
+            <span [hidden]="SidebarCollapse">{{ ButtonSidebarCaption }}</span>
+        </button>
+    </div>
+</div>

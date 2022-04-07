@@ -1,0 +1,33 @@
+<ejs-grid #Grid [id]="gridId" [width]="gridWidth" [height]="gridHeight" [dataSource]="gridDataSource" [rowHeight]="27"
+    [gridLines]="gridLines" [allowPaging]="gridPaging" [allowResizing]="true" [allowFiltering]='gridFiltering'
+    [pageSettings]="gridInitialPage" [toolbar]="toolbar" [editSettings]="gridEditingSettings"
+    [contextMenuItems]="gridContextMenuItems" [selectionSettings]="gridSelectionSettings"
+    [allowTextWrap]="allowTextWrap" [textWrapSettings]="textWrapSettings" (rowSelected)="onRowSelecting($event)"
+    (keyPressed)="onKeyPressing($event)" (recordDoubleClick)="onDoubleClick($event)"
+    (actionBegin)="onActionBegin($event)" (actionComplete)="onActionComplete($event)"
+    (toolbarClick)="onToolbarClick($event)" (commandClick)="onCommandClick($event)" (load)="onLoadGrid($event)"
+    (queryCellInfo)="onQueryCellInfo($event)" (rowDataBound)="onRowDataBound($event)" (dataBound)="onDataBound($event)"
+    [childGrid]="childGrid" [allowGrouping]="gridGrouping" [groupSettings]="gridGroupSettings">
+    <e-columns>
+        <ng-template ngFor let-item [ngForOf]="columns">
+            <e-column [width]="item.width" [field]="item.field" [headerText]="item.headerText" [visible]="item.visible"
+                [type]="item.type" [allowEditing]="item.allowEditing" [allowSorting]="item.allowSorting"
+                [format]="item.format" [headerTextAlign]="item.headerTextAlign" [textAlign]="item.textAlign"
+                [displayAsCheckBox]="item.displayAsCheckBox" [editType]="item.editType ? item.editType : null"
+                [edit]="item.editParams ? item.editParams : null">
+            </e-column>
+        </ng-template>
+    </e-columns>
+    <ng-template *ngIf="gridGrouping" #groupSettingsCaptionTemplate let-data>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p class="text-white mb-0" style="font-size: 15px">
+                    {{ data.headerText | titlecase }} {{ data.key | titlecase }} - &nbsp;
+                    <span class="mb-0 text-white">
+                        {{ data.count }}
+                    </span>
+                </p>
+            </div>
+        </div>
+    </ng-template>
+</ejs-grid>

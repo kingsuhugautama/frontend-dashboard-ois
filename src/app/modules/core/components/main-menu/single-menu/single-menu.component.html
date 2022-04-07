@@ -1,0 +1,31 @@
+<div class="card rounded border-left-biru-muda shadow-sm cursor-pointer card-hover" id="{{ IdMenu }}">
+    <div class="card-body py-2" (click)="handleClickSingleMenu()">
+        <div class="row align-items-center" *ngIf="UserData.id_role != 1">
+            <!-- Icon atau Gambar -->
+            <div class="col-2 px-0 text-center">
+                <i class="icon {{ IconMenu }}"></i>
+            </div>
+
+            <!-- Nama Menu -->
+            <div class="col-10 px-0">
+                <h5 class="font-cabin mb-0" style="color: #0083bf">
+                    {{ NamaMenu }}
+                </h5>
+            </div>
+        </div>
+
+        <div class="row align-items-center" *ngIf="UserData.id_role == 1">
+            <!-- Icon atau Gambar -->
+            <div class="col-2 px-0 text-center" style="color: #0083bf; font-size: 25px;">
+                <i class="fas fa-cogs"></i>
+            </div>
+
+            <!-- Nama Menu -->
+            <div class="col-10 px-0">
+                <h5 class="font-cabin mb-0" style="color: #0083bf; font-size: 21px;">
+                    {{ NamaMenu }}
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

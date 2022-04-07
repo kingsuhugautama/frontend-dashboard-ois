@@ -1,0 +1,39 @@
+div.card-hover:hover {
+  background-color: #00afff;
+  transition: all 0.25s;
+}
+
+div.card-hover:hover > .card-body > .row > .col-10 > h5 {
+  color: white !important;
+}
+
+div.card-hover:hover > .card-body > .row > .col-2 > .icon {
+  background-color: white !important;
+}
+
+div.card-hover:hover > .card-body > .row > .col-2 > svg {
+  color: white !important;
+}
+
+.card-round {
+  border-radius: 50%;
+}
+
+.card-body {
+  height: 4.5rem;
+  max-height: 4.5rem;
+}
+
+.row {
+  height: 100%;
+  align-items: center;
+}
+
+h5.font-cabin.mb-0 {
+  font-size: 17px;
+}
+
+img.image-main-menu {
+  height: 2rem;
+  max-height: 2rem;
+}

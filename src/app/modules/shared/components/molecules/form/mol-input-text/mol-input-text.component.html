@@ -1,0 +1,14 @@
+<div class="mb-2 row">
+    <div class="col-sm-4">
+        <atm-label [LabelCaption]="label" [isFooter]="isFooter"></atm-label>
+    </div>
+    <div class="col-sm-8">
+        <atm-input [id]="id" [type]="type" [value]="value" [inputFieldState]="inputFieldState"
+            (change)="doChange($event)" (click)="doTouched($event)" [isFooter]="isFooter" [disabled]="disabled">
+        </atm-input>
+
+        <atm-validators [IsFormControlTouched]="touched" [IsFormControlInvalid]="IsFormControlInvalid"
+            [ValidatorsCaption]="ValidatorsCaption">
+        </atm-validators>
+    </div>
+</div>

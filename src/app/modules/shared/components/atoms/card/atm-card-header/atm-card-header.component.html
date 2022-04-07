@@ -1,0 +1,19 @@
+<div class="row px-2">
+    <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 px-0 text-center DivIconCardHeader">
+        <p class="font-cabin mb-0" [style.color]="CardHeaderColor">
+            <i class="fas {{ CardHeaderIcon }}" [class.fa-sm]="WindowWidth >= 1025" [class.fa-xs]="WindowWidth < 1025">
+            </i>
+        </p>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <p class="font-cabin mb-0 text-white">
+            {{ CardHeaderCaption }}
+        </p>
+    </div>
+    <!-- <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 px-0 text-center DivIconCardHeader" style="cursor: pointer;">
+        <p class="font-cabin mb-0" [style.color]="CardHeaderColor">
+            <i class="fas fa-chevron-left" [class.fa-sm]="WindowWidth >= 1025" [class.fa-xs]="WindowWidth < 1025">
+            </i>
+        </p>
+    </div> -->
+</div>

@@ -1,0 +1,17 @@
+<!-- <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-2">
+        <input type="text" class="form-control" #FilterPencarianGlobal id="FilterPencarianGlobal"
+            (keyup)="onFilterPencarianGlobal(FilterPencarianGlobal.value)">
+    </div>
+</div> -->
+<div class="row">
+    <div *ngFor="let column of Columns"
+        class="col-lg-{{ 12 / Columns?.length }} col-md-{{ 24 / Columns?.length }} col-sm-{{ 48 / Columns?.length }}">
+        <atm-board [CdkDropListId]="column.KeyField" [CardHeaderBackgroundColor]="column.HeaderBackgroundColor"
+            [CardHeaderIcon]="column.ColumnIcon" [CardHeaderCaption]="column.HeaderText" [CardBodyData]="column.Data"
+            [ConnectedTo]="column.ConnectedTo" [FilterPencarianGlobal]="FilterPencarianGlobal" 
+            (PindahKeAntrian)="PindahKeAntrian($event)"
+            (SedangDiLayani)="SedangDiLayani($event)">
+        </atm-board>
+    </div>
+</div>

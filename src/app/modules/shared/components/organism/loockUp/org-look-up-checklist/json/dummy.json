@@ -1,0 +1,262 @@
+{
+    "GridSettingTarifBerlakuColumns": [
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "id_setup_tarif",
+            "headerText": "Id Setup Tarif",
+            "type": "number",
+            "format": "N",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "id_kelas",
+            "headerText": "Id Kelas",
+            "type": "number",
+            "format": "N",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "kode_setup_tarif",
+            "headerText": "Kode Tarif",
+            "textAlign": "Left",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 100
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "nama_setup_tarif",
+            "headerText": "Nama Tarif",
+            "textAlign": "Left",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 200
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "tgl_berlaku",
+            "headerText": "Tgl Berlaku",
+            "type": "Date",
+            "format": "dd/MM/yyyy",
+            "textAlign": "Left",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "tgl_berakhir",
+            "headerText": "Tgl Berakhir",
+            "type": "Date",
+            "format": "dd/MM/yyyy",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "doct_fee",
+            "headerText": "J. Dokter",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "medical_fee",
+            "headerText": "J. Sarana",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "hos_fee",
+            "headerText": "J. RS",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "com_fee",
+            "headerText": "J. Kompensasi",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": false,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "add_fee",
+            "headerText": "J. BHAP",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "anas_fee",
+            "headerText": "J. Anastesi",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": true,
+            "allowSorting": false,
+            "field": "support_fee",
+            "headerText": "J. Support",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": false,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "nominal_tarif",
+            "headerText": "Nominal Tarif",
+            "headerTextAlign": "Right",
+            "type": "number",
+            "format": "N2",
+            "textAlign": "Right",
+            "visible": true,
+            "editType": "defaultEdit",
+            "width": 80
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "is_active",
+            "headerText": "Is Active",
+            "type": "boolean",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "user_created",
+            "headerText": "User Created",
+            "type": "number",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "time_created",
+            "headerText": "Time Created",
+            "type": "string",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "user_deactived",
+            "headerText": "User Deactived",
+            "type": "number",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        },
+        {
+            "allowEditing": false,
+            "allowSorting": false,
+            "field": "time_deactived",
+            "headerText": "Time Deactived",
+            "type": "string",
+            "textAlign": "Left",
+            "visible": false,
+            "editType": "defaultEdit"
+        }
+    ],
+    "LookupTarif": {
+        "columns": [
+            {
+                "width": 50,
+                "type": "Checkbox",
+                "field": "Checkbox",
+                "headerTextAlign": "Center",
+                "textAlign": "Center"
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "defaultEdit",
+                "field": "id_setup_tarif",
+                "headerText": "ID",
+                "type": "string",
+                "visible": false
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "defaultEdit",
+                "field": "kode_setup_tarif",
+                "headerText": "Kode Setup Tarif",
+                "type": "string",
+                "visible": true
+            },
+            {
+                "allowEditing": true,
+                "allowSorting": true,
+                "editType": "defaultEdit",
+                "field": "nama_setup_tarif",
+                "headerText": "Nama Setup Tarif",
+                "type": "string",
+                "visible": true
+            }
+        ],
+        "filter": []
+    }
+}

@@ -1,0 +1,15 @@
+<div class="row mb-2">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <atm-label [LabelCaption]="label"></atm-label>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pt-2">
+        <ng-container *ngFor="let item of RadioButtonObject">
+            <div class="form-check form-check-inline">
+                <atm-radio-button [id]="item.id" [RadioButtonId]="item.id" [value]="item.value"
+                    (change)="doChange($event)" [RadioButtonLabel]="item.label" [RadioButtonChecked]="item.checked"
+                    [inputFieldState]="item.inputFieldState">
+                </atm-radio-button>
+            </div>
+        </ng-container>
+    </div>
+</div>

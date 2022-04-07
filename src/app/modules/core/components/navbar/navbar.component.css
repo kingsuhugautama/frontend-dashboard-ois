@@ -1,0 +1,42 @@
+a.brand-logo {
+  width: 4.5em;
+  max-width: 4.5em;
+  text-align: center;
+}
+
+#imgBrandNavbar {
+  height: 1.5rem;
+  max-height: 1.5rem;
+}
+
+img.img-logout {
+  height: 1.5em;
+  max-height: 1.5em;
+  width: 1.5em;
+  max-width: 1.5em;
+  padding: 0.2em;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 4px;
+}
+
+ul.dropdown-menu.py-1.hover-dropdown-user {
+  background-color: #00afff !important;
+  transition: all 0.25s;
+}
+
+ul.dropdown-menu.py-1.hover-dropdown-user > li.dropdown-items-user:hover {
+  background-color: var(--biru-muda) !important;
+}
+
+ul.dropdown-menu.py-1.hover-dropdown-user > li.dropdown-items-user:active {
+  background-color: var(--biru-muda) !important;
+}
+
+ul.dropdown-menu.py-1.hover-dropdown-user > li.dropdown-items-user > a {
+  color: white !important;
+}
+
+ul.dropdown-menu.py-1.hover-dropdown-user > li.dropdown-items-user > a:hover {
+  color: var(--biru-muda) !important;
+}

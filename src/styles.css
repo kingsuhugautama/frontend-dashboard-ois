@@ -1,0 +1,425 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@syncfusion/ej2-base/styles/tailwind.css";
+@import "~@syncfusion/ej2-buttons/styles/tailwind.css";
+@import "~@syncfusion/ej2-dropdowns/styles/tailwind.css";
+@import "~@syncfusion/ej2-inputs/styles/tailwind.css";
+@import "~@syncfusion/ej2-navigations/styles/tailwind.css";
+@import "~@syncfusion/ej2-popups/styles/tailwind.css";
+@import "~@syncfusion/ej2-splitbuttons/styles/tailwind.css";
+@import "~@syncfusion/ej2-angular-grids/styles/tailwind.css";
+@import "~@syncfusion/ej2-calendars/styles/tailwind.css";
+@import "~@syncfusion/ej2-angular-calendars/styles/tailwind.css";
+@import "~@syncfusion/ej2-angular-dropdowns/styles/tailwind.css";
+@import "~@syncfusion/ej2-lists/styles/tailwind.css";
+@import "~@syncfusion/ej2-angular-inputs/styles/tailwind.css";
+@import "~@syncfusion/ej2-angular-navigations/styles/tailwind.css";
+@import "~@syncfusion/ej2-angular-schedule/styles/tailwind.css";
+
+html,
+body {
+  font-family: "Cabin", sans-serif !important;
+  background-color: #f6f4f7 !important;
+}
+
+:root {
+  --biru-muda: #00afff;
+  --biru-tua: #0d6efd;
+  --hitam: #051e34;
+  --hitam-muda: #637280;
+  --abu-muda: #cbd1d6;
+  --abu-tua: #9f9f9f;
+  --putih-tua: #f9f9fa;
+  --hijau-muda: #00ff7a;
+  --hijau-tua: #009f4c;
+  --kuning-tua: #9f9b00;
+  --merah-muda: #ff5000;
+}
+
+.icon {
+  --size: 40px;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  transition: 0.12s;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: #0083bf;
+}
+
+.icon-pis {
+  -webkit-mask-image: url("./assets/image/main-menu/patient-information-system.svg");
+  mask-image: url("./assets/image/main-menu/patient-information-system.svg");
+}
+
+.icon-erm {
+  -webkit-mask-image: url("./assets/image/main-menu/electronic-medical-record.svg");
+  mask-image: url("./assets/image/main-menu/electronic-medical-record.svg");
+}
+
+.icon-pharmacy {
+  -webkit-mask-image: url("./assets/image/main-menu/pharmacy-information-system.svg");
+  mask-image: url("./assets/image/main-menu/pharmacy-information-system.svg");
+  margin-top: 10px;
+}
+
+.icon-material-management {
+  -webkit-mask-image: url("./assets/image/main-menu/material-management.svg");
+  mask-image: url("./assets/image/main-menu/material-management.svg");
+}
+
+.icon-order-management {
+  -webkit-mask-image: url("./assets/image/main-menu/order-management.svg");
+  mask-image: url("./assets/image/main-menu/order-management.svg");
+  margin-top: 10px;
+}
+
+.icon-asset-management {
+  -webkit-mask-image: url("./assets/image/main-menu/asset-management.svg");
+  mask-image: url("./assets/image/main-menu/patient-information-system.svg");
+}
+
+.icon-nutrition {
+  -webkit-mask-image: url("./assets/image/main-menu/nutrition-information-system.svg");
+  mask-image: url("./assets/image/main-menu/nutrition-information-system.svg");
+}
+
+.icon-laundry {
+  -webkit-mask-image: url("./assets/image/main-menu/laundry-information-system.svg");
+  mask-image: url("./assets/image/main-menu/laundry-information-system.svg");
+}
+
+.icon-human-resource {
+  -webkit-mask-image: url("./assets/image/main-menu/human-resource-information-system.svg");
+  mask-image: url("./assets/image/main-menu/human-resource-information-system.svg");
+  margin-top: 10px;
+}
+
+.icon-finance {
+  -webkit-mask-image: url("./assets/image/main-menu/finance-information-system.svg");
+  mask-image: url("./assets/image/main-menu/finance-information-system.svg");
+  margin-top: 10px;
+}
+
+.icon-executive-reporting {
+  -webkit-mask-image: url("./assets/image/main-menu/executive-summary-reporting.svg");
+  mask-image: url("./assets/image/main-menu/executive-summary-reporting.svg");
+  margin-top: 10px;
+}
+
+.icon-e-office {
+  -webkit-mask-image: url("./assets/image/main-menu/e-office-information-system.svg");
+  mask-image: url("./assets/image/main-menu/e-office-information-system.svg");
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-disabled {
+  cursor: not-allowed !important;
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-cabin {
+  font-family: "Cabin", sans-serif;
+}
+
+/* ======= Style Biru Muda */
+.text-biru-muda {
+  color: var(--biru-muda) !important;
+}
+
+.background-biru-muda {
+  background-color: var(--biru-muda) !important;
+}
+
+.border-top-biru-muda {
+  border-top: 0.25em solid var(--biru-muda) !important;
+}
+
+.border-left-biru-muda {
+  border-left: 0.25em solid var(--biru-muda) !important;
+}
+
+/* ======= Style Biru Tua */
+.text-biru-tua {
+  color: var(--biru-tua) !important;
+}
+
+.background-biru-tua {
+  background-color: var(--biru-tua) !important;
+}
+
+.border-top-biru-tua {
+  border-top: 0.25em solid var(--biru-tua) !important;
+}
+
+.border-left-biru-tua {
+  border-left: 0.25em solid var(--biru-tua) !important;
+}
+
+/* ====== Style Hitam */
+.text-hitam {
+  color: var(--hitam) !important;
+}
+
+.text-hitam-muda {
+  color: var(--hitam-muda) !important;
+}
+
+/* ====== Style Abu Muda */
+.text-abu-muda {
+  color: var(--abu-muda) !important;
+}
+
+.background-abu-muda {
+  background-color: var(--abu-muda) !important;
+}
+
+.border-top-abu-muda {
+  border-top: 0.25em solid var(--biru-muda) !important;
+}
+
+/* ====== Style Abu Muda */
+.text-abu-tua {
+  color: var(--abu-tua) !important;
+}
+
+.background-abu-tua {
+  background-color: var(--abu-tua) !important;
+}
+
+.border-top-abu-tua {
+  border-top: 0.25em solid var(--abu-tua) !important;
+}
+
+/* ===== Style Ungu Tua */
+.text-ungu-tua {
+  color: #432158 !important;
+}
+
+.background-ungu-tua {
+  background-color: #432158 !important;
+}
+
+.border-left-ungu-tua {
+  border-left: 0.25em solid #432158 !important;
+}
+
+.border-top-ungu-tua {
+  border-top: 0.25em solid #432158 !important;
+}
+
+/* .background-putih-tua {
+    background-color: ;
+} */
+
+.text-merah-muda {
+  color: var(--merah-muda) !important;
+}
+
+.e-toolbar .e-toolbar-item .e-tbar-btn.e-btn .e-icons.e-btn-icon {
+  min-height: 14px !important;
+}
+
+.modal-footer {
+  min-height: 55px;
+}
+
+.ng-wizard-theme-dots > ul.step-anchor {
+  justify-content: center !important;
+}
+
+.ng-wizard-theme-dots > ul.step-anchor > li {
+  width: 12rem;
+  max-width: 12rem;
+}
+
+.ng-wizard-container.tab-content {
+  height: calc(100vh - 18.5rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.e-activecolor-background {
+  background-color: #d1eaf6 !important;
+  color: white !important;
+}
+
+.e-validation-background {
+  background-color: #9bd6f1 !important;
+  color: white !important;
+}
+
+.e-canceled-background {
+  background-color: #f6c1cc !important;
+  color: white !important;
+}
+
+.e-closed-background {
+  background-color: #f6ebc1 !important;
+  color: white !important;
+}
+
+.statustemp.e-activecolor {
+  color: white !important;
+  background-color: var(--biru-muda) !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.e-inactivecolor {
+  background-color: var(--abu-tua) !important;
+  color: white !important;
+}
+
+.statustemp.e-inactivecolor {
+  color: white !important;
+  background-color: var(--abu-tua) !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.statustemp.e-warningcolor {
+  color: white !important;
+  background-color: var(--kuning-tua) !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.statustemp.e-postedcolor {
+  color: white !important;
+  background-color: var(--hijau-tua) !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.e-treeview .e-list-text {
+  width: 100%;
+}
+
+.readonly-state {
+  background-color: #e9ecef;
+}
+
+.readonly-state-blue {
+  background-color: var(--biru-muda) !important;
+  color: white !important;
+}
+
+span.readonly-state > .e-numerictextbox {
+  background-color: #e9ecef !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+.large-modal-content {
+  width: 60rem !important;
+  margin-left: -5rem !important;
+}
+
+.see-detail {
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+  background-color: white !important;
+}
+
+.see-detail:focus,
+.see-detail:active {
+  box-shadow: none !important;
+}
+
+.swal-wide {
+  width: 45rem !important;
+  max-width: 45rem !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+@media (min-width: 1399.98px) {
+  .large-modal-content {
+    width: 75rem !important;
+    margin-left: -12.6rem !important;
+  }
+}
+
+/** SETUP BED STYLING **/
+.statustemp.e_not_operational_color {
+  color: white !important;
+  background-color: var(--abu-tua) !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.statustemp.e_is_ready_color {
+  color: white !important;
+  background-color: #2dc937 !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.statustemp.e_is_fill_color {
+  color: white !important;
+  background-color: #cc3232 !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.statustemp.e_is_new_color {
+  color: white !important;
+  background-color: #e7b416 !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.statustemp.e_is_scheduled_color {
+  color: white !important;
+  background-color: #327ccc !important;
+  height: 19px;
+  width: 100%;
+  padding-top: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.e-pink-editable-background {
+  background-color: #ffc0c0 !important;
+  color: black !important;
+}
+
+.e-schedule .e-month-view .e-appointment {
+  padding-left: 10px !important;
+  border-radius: 5px !important;
+}

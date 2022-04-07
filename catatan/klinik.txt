@@ -1,0 +1,10 @@
+print ticket
+pendaftaran
+- cetak karcis
+- dashboard dokter rekamedis
+	- integrasi klinik rekammedis
+	- diagnosa
+	- resep
+	- radiologi
+	- laboratorium
+- billing

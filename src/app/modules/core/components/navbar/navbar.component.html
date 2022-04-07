@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light background-biru-muda">
+    <div class="container-fluid ps-0">
+        <!-- Button Toggler Responsive -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDashboard"
+            aria-controls="navbarDashboard" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation -->
+        <div class="collapse navbar-collapse" id="navbarDashboard">
+            <!-- Navbar Brand -->
+            <a id="NavbarBrand"
+                class="navbar-brand font-cabin text-white fw-bolder border-end brand-logo cursor-pointer"
+                (click)="onClickedNavbarBrand($event)">
+                <i class="fas fa-th"></i>
+            </a>
+
+            <!-- Navbar Brand Logo -->
+            <a class="navbar-brand font-cabin text-white">
+                <!-- Gracia Health Care Information System -->
+                <!-- <img id="imgBrandNavbar" src=".../../../../../../../assets/image/authentication/image-logo.png"
+                    alt="grahcis-logo"> -->
+                OIS
+            </a>
+
+            <!-- Navbar Right -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <!-- Nama User -->
+                <li class="nav-item dropdown cursor-pointer">
+                    <a class="nav-link font-cabin text-white dropdown-toggle" id="dropdownUser" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../../../../assets/image/navbar/user.png" alt="button-user" class="img-logout">
+                        {{ UserData.full_name }}
+                    </a>
+                    <ul class="dropdown-menu py-1 hover-dropdown-user" aria-labelledby="dropdownUser">
+                        <li class="dropdown-items-user">
+                            <a class="dropdown-item" (click)="onNavigateToChangePassword()">Ganti Password</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Logout Button -->
+                <li class="nav-item cursor-pointer" data-bs-toggle="tooltip" title="Sign Out"
+                    (click)="onClickButtonLogout()">
+                    <a class="nav-link font-cabin text-white">
+                        <img src="../../../../assets/image/navbar/logout.png" alt="button-logout" class="img-logout">
+                        Sign Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

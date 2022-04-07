@@ -1,0 +1,37 @@
+<ng-container *ngFor="let item of buttons">
+
+    <!-- Apabila Button tidak memiliki Children, maka DOM akan merender button ini -->
+    <button *ngIf="item.Children?.length < 1" type="button" class="btn btn-sm mx-1 font-cabin"
+        (click)="onClickedButtonNav(item.Id)">
+        <!-- Jika dari Page Component di Passing StakIcon = true, maka DOM akan merender ini -->
+        <div *ngIf="item.StackIcon; else NotStackIcon">
+            <span class="fa-layers fa-fw">
+                <i class="fas {{ item.Icons1 }}"></i>
+                <i class="fa-inverse fas {{ item.Icons2 }}" data-fa-transform="shrink-1 up-7 right-10"
+                    style="color: red">
+                </i>
+            </span>&nbsp; {{ item.Captions }}
+        </div>
+
+        <!-- Jika dari Page Component tidak Passing StakIcon, maka DOM akan merender ini -->
+        <ng-template #NotStackIcon>
+            <i class="fas {{ item.Icons1 }}" [attr.dropdown]=""></i>&nbsp; {{ item.Captions }}
+        </ng-template>
+    </button>
+
+    <div class="btn-group" dropdown>
+        <button *ngIf="item.Children?.length > 0" dropdownToggle type="button"
+            class="btn btn-outline-light btn-sm mx-1 font-cabin" aria-controls="{{ item.Id }}Controls">
+            <i class="fas {{ item.Icons1 }} "></i>&nbsp;
+            {{ item.Captions }}&nbsp; <i class="fas fa-angle-down fa-sm"></i>
+        </button>
+
+        <ul id="{{ item.Id }}Controls" *dropdownMenu class="dropdown-menu py-1" role="menu">
+            <li role="menuitem" *ngFor="let childItem of item.Children">
+                <a class="dropdown-item font-cabin" [id]="childItem.Id" (click)="onClickedButtonNav(childItem.Id)">
+                    {{ childItem.Captions }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</ng-container>
